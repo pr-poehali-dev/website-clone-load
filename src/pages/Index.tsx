@@ -71,6 +71,12 @@ const Index = () => {
                 Цены
               </a>
               <a
+                href="#legal"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Документы
+              </a>
+              <a
                 href="#contact"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
@@ -200,6 +206,153 @@ const Index = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Legal Section */}
+      <section id="legal" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Правовая информация
+            </h2>
+            <p className="text-lg text-gray-600">
+              Все необходимые документы и лицензии
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <Icon
+                  name="FileText"
+                  size={48}
+                  className="text-blue-600 mx-auto mb-4"
+                />
+                <CardTitle className="text-lg">Лицензия на техосмотр</CardTitle>
+                <CardDescription>
+                  Лицензия №TO-77-123456 от 15.01.2024
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <Button variant="outline" className="w-full">
+                  <Icon name="Download" size={16} className="mr-2" />
+                  Скачать
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <Icon
+                  name="Shield"
+                  size={48}
+                  className="text-blue-600 mx-auto mb-4"
+                />
+                <CardTitle className="text-lg">
+                  Сертификат соответствия
+                </CardTitle>
+                <CardDescription>
+                  РОСС RU.АЯ46.К00678 от 20.02.2024
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <Button variant="outline" className="w-full">
+                  <Icon name="Download" size={16} className="mr-2" />
+                  Скачать
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <Icon
+                  name="Building"
+                  size={48}
+                  className="text-blue-600 mx-auto mb-4"
+                />
+                <CardTitle className="text-lg">
+                  Свидетельство о регистрации
+                </CardTitle>
+                <CardDescription>
+                  ОГРН 1127746123456 от 10.03.2024
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <Button variant="outline" className="w-full">
+                  <Icon name="Download" size={16} className="mr-2" />
+                  Скачать
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-12">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-center">
+                  Реквизиты организации
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Наименование:
+                      </h4>
+                      <p className="text-gray-700">ООО "ТехОсмотр+"</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Юридический адрес:
+                      </h4>
+                      <p className="text-gray-700">
+                        123456, г. Москва, ул. Промышленная, д. 15
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        ОГРН:
+                      </h4>
+                      <p className="text-gray-700">1127746123456</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        ИНН/КПП:
+                      </h4>
+                      <p className="text-gray-700">7701234567/770101001</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Банк:
+                      </h4>
+                      <p className="text-gray-700">
+                        ПАО "Сбербанк России"
+                        <br />
+                        БИК: 044525225
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Р/с:</h4>
+                      <p className="text-gray-700">40702810123456789012</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-8 text-center">
+            <div className="flex items-center justify-center space-x-4 p-4 bg-blue-50 rounded-lg">
+              <Icon name="CheckCircle" size={24} className="text-blue-600" />
+              <div className="text-left">
+                <p className="text-sm font-medium text-blue-900">
+                  Все документы актуальны
+                </p>
+                <p className="text-sm text-blue-700">
+                  Проверено Росстандартом и ГИБДД
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -228,10 +228,12 @@ const Index = () => {
                   size={48}
                   className="text-blue-600 mx-auto mb-4"
                 />
-                <CardTitle className="text-lg">Лицензия на техосмотр</CardTitle>
-                <CardDescription>
-                  Лицензия №TO-77-123456 от 15.01.2024
-                </CardDescription>
+                <CardTitle className="text-lg">
+                  Федеральный закон "О техническом осмотре транспортных средств
+                  и о внесении изменений в отдельные законодательные акты
+                  Российской Федерации"
+                </CardTitle>
+                <CardDescription>от 01.07.2011 N 170-ФЗ</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <Button

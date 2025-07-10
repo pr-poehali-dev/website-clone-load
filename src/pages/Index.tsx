@@ -234,7 +234,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => window.open("/docs/license.pdf", "_blank")}
+                >
                   <Icon name="Download" size={16} className="mr-2" />
                   Скачать
                 </Button>
@@ -255,7 +259,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => window.open("/docs/certificate.pdf", "_blank")}
+                >
                   <Icon name="Download" size={16} className="mr-2" />
                   Скачать
                 </Button>
@@ -276,7 +284,13 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() =>
+                    window.open("/docs/registration.pdf", "_blank")
+                  }
+                >
                   <Icon name="Download" size={16} className="mr-2" />
                   Скачать
                 </Button>

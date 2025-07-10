@@ -254,7 +254,7 @@ const Index = () => {
                   className="text-blue-600 mx-auto mb-4"
                 />
                 <CardTitle className="text-lg">
-                  Сертификат соответствия
+                  Правила проведения технического осмотра
                 </CardTitle>
                 <CardDescription>
                   РОСС RU.АЯ46.К00678 от 20.02.2024

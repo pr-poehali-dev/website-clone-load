@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТехОсмотр+ - Профессиональный техосмотр грузового транспорта</title>
+    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            color: #2563eb;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #374151;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dbeafe 0%, #f3f4f6 100%);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            color: #2563eb;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            color: #2563eb;
+            margin: 0 auto 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .price-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Prices Section */
+        .prices {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .prices-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-category {
+            color: #374151;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .info-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #dbeafe;
+            border-radius: 8px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            color: #2563eb;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-content {
+            color: #1e40af;
+        }
+
+        .info-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Legal Section */
+        .legal {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .legal-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .legal-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .company-info {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .company-field {
+            margin-bottom: 1.5rem;
+        }
+
+        .company-label {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-value {
+            color: #374151;
+        }
+
+        .status-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #dbeafe;
+            border-radius: 8px;
+        }
+
+        .status-icon {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .status-content {
+            text-align: left;
+        }
+
+        .status-title {
+            font-weight: 500;
+            color: #1e3a8a;
+            margin-bottom: 0.25rem;
+        }
+
+        .status-text {
+            color: #1d4ed8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: #1f2937;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            color: #60a5fa;
+            margin: 0 auto 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text {
+            color: #d1d5db;
+        }
+
+        .contact-link {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #60a5fa;
+        }
+
+        .contact-cta {
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #374151;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-icon {
+            width: 24px;
+            height: 24px;
+            color: #60a5fa;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i data-lucide="truck" class="logo-icon"></i>
+                    <span class="logo-text">ТехОсмотр+</span>
+                </div>
+                <nav class="nav">
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <a href="#prices" class="nav-link">Цены</a>
+                    <a href="#legal" class="nav-link">Документы</a>
+                    <a href="#contact" class="nav-link">Контакты</a>
+                </nav>
+                <button class="btn btn-primary">
+                    <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+                    Записаться
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Лицензированный центр техосмотра</div>
+            <h1 class="hero-title">
+                Профессиональный техосмотр<br>
+                <span class="hero-subtitle">грузового транспорта</span>
+            </h1>
+            <p class="hero-description">
+                Быстрый и качественный техосмотр всех видов грузовых автомобилей.
+                Современное оборудование, опытные специалисты, честные цены.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-lg">
+                    <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+                    Записаться на техосмотр
+                </button>
+                <button class="btn btn-outline btn-lg">
+                    <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                    Узнать цену
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-description">Полный спектр услуг по техническому осмотру</p>
+            
+            <div class="services-grid">
+                <div class="card">
+                    <i data-lucide="truck" class="card-icon"></i>
+                    <h3 class="card-title">Техосмотр грузовых автомобилей</h3>
+                    <p class="card-description">Полный технический осмотр всех систем грузового транспорта</p>
+                    <span class="price-badge">от 2 500 ₽</span>
+                </div>
+                
+                <div class="card">
+                    <i data-lucide="settings" class="card-icon"></i>
+                    <h3 class="card-title">Диагностика двигателя</h3>
+                    <p class="card-description">Компьютерная диагностика и проверка работы двигателя</p>
+                    <span class="price-badge">от 1 500 ₽</span>
+                </div>
+                
+                <div class="card">
+                    <i data-lucide="shield" class="card-icon"></i>
+                    <h3 class="card-title">Проверка тормозной системы</h3>
+                    <p class="card-description">Диагностика и тестирование тормозов и ABS</p>
+                    <span class="price-badge">от 1 200 ₽</span>
+                </div>
+                
+                <div class="card">
+                    <i data-lucide="zap" class="card-icon"></i>
+                    <h3 class="card-title">Проверка электрики</h3>
+                    <p class="card-description">Диагностика электрооборудования и освещения</p>
+                    <span class="price-badge">от 800 ₽</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices" class="prices">
+        <div class="container">
+            <h2 class="section-title">Цены на техосмотр</h2>
+            <p class="section-description">Прозрачные и честные цены без скрытых доплат</p>
+            
+            <div class="prices-card">
+                <h3 class="card-title" style="text-align: center; margin-bottom: 2rem;">Стоимость техосмотра</h3>
+                
+                <div class="price-item">
+                    <span class="price-category">Легковые автомобили</span>
+                    <span class="price-amount">1 200 ₽</span>
+                </div>
+                
+                <div class="price-item">
+                    <span class="price-category">Грузовики до 3,5 т</span>
+                    <span class="price-amount">2 500 ₽</span>
+                </div>
+                
+                <div class="price-item">
+                    <span class="price-category">Грузовики 3,5-12 т</span>
+                    <span class="price-amount">3 500 ₽</span>
+                </div>
+                
+                <div class="price-item">
+                    <span class="price-category">Грузовики свыше 12 т</span>
+                    <span class="price-amount">4 500 ₽</span>
+                </div>
+                
+                <div class="price-item">
+                    <span class="price-category">Автобусы</span>
+                    <span class="price-amount">3 000 ₽</span>
+                </div>
+                
+                <div class="price-item">
+                    <span class="price-category">Прицепы</span>
+                    <span class="price-amount">1 800 ₽</span>
+                </div>
+                
+                <div class="info-box">
+                    <i data-lucide="info" class="info-icon"></i>
+                    <div class="info-content">
+                        <p class="info-title">Дополнительная информация</p>
+                        <p>Цены указаны за стандартный техосмотр. Повторный осмотр после устранения неисправностей - 50% от стоимости.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Section -->
+    <section id="legal" class="legal">
+        <div class="container">
+            <h2 class="section-title">Правовая информация</h2>
+            <p class="section-description">Все необходимые документы и лицензии</p>
+            
+            <div class="legal-grid">
+                <div class="legal-card">
+                    <i data-lucide="file-text" class="card-icon"></i>
+                    <h3 class="card-title">Федеральный закон "О техническом осмотре транспортных средств и о внесении изменений в отдельные законодательные акты Российской Федерации"</h3>
+                    <p class="card-description">от 01.07.2011 N 170-ФЗ</p>
+                    <button class="btn btn-outline" style="margin-top: 1rem;">
+                        <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                        Скачать
+                    </button>
+                </div>
+                
+                <div class="legal-card">
+                    <i data-lucide="shield" class="card-icon"></i>
+                    <h3 class="card-title">Правила проведения технического осмотра</h3>
+                    <p class="card-description">РОСС RU.АЯ46.К00678 от 20.02.2024</p>
+                    <button class="btn btn-outline" style="margin-top: 1rem;">
+                        <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                        Скачать
+                    </button>
+                </div>
+                
+                <div class="legal-card">
+                    <i data-lucide="building" class="card-icon"></i>
+                    <h3 class="card-title">Свидетельство о регистрации</h3>
+                    <p class="card-description">ОГРН 1127746123456 от 10.03.2024</p>
+                    <button class="btn btn-outline" style="margin-top: 1rem;">
+                        <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                        Скачать
+                    </button>
+                </div>
+            </div>
+            
+            <div class="company-info">
+                <h3 class="card-title" style="text-align: center; margin-bottom: 2rem;">Реквизиты организации</h3>
+                
+                <div class="company-grid">
+                    <div>
+                        <div class="company-field">
+                            <div class="company-label">Наименование:</div>
+                            <div class="company-value">ООО "ТехОсмотр+"</div>
+                        </div>
+                        
+                        <div class="company-field">
+                            <div class="company-label">Юридический адрес:</div>
+                            <div class="company-value">123456, г. Москва, ул. Промышленная, д. 15</div>
+                        </div>
+                        
+                        <div class="company-field">
+                            <div class="company-label">ОГРН:</div>
+                            <div class="company-value">1127746123456</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="company-field">
+                            <div class="company-label">ИНН/КПП:</div>
+                            <div class="company-value">7701234567/770101001</div>
+                        </div>
+                        
+                        <div class="company-field">
+                            <div class="company-label">Банк:</div>
+                            <div class="company-value">
+                                ПАО "Сбербанк России"<br>
+                                БИК: 044525225
+                            </div>
+                        </div>
+                        
+                        <div class="company-field">
+                            <div class="company-label">Р/с:</div>
+                            <div class="company-value">40702810123456789012</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="status-box">
+                <i data-lucide="check-circle" class="status-icon"></i>
+                <div class="status-content">
+                    <p class="status-title">Все документы актуальны</p>
+                    <p class="status-text">Проверено Росстандартом и ГИБДД</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <p class="section-description">Работаем каждый день с 8:00 до 20:00</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i data-lucide="map-pin" class="contact-icon"></i>
+                    <h3 class="contact-title">Адрес</h3>
+                    <p class="contact-text">
+                        г. Москва, ул. Промышленная, 15<br>
+                        (рядом с МКАД)
+                    </p>
+                </div>
+                
+                <div class="contact-item">
+                    <i data-lucide="phone" class="contact-icon"></i>
+                    <h3 class="contact-title">Телефон</h3>
+                    <p class="contact-text">
+                        <a href="tel:+74951234567" class="contact-link">+7 (495) 123-45-67</a>
+                    </p>
+                </div>
+                
+                <div class="contact-item">
+                    <i data-lucide="clock" class="contact-icon"></i>
+                    <h3 class="contact-title">Время работы</h3>
+                    <p class="contact-text">
+                        Пн-Вс: 8:00 - 20:00<br>
+                        Без выходных
+                    </p>
+                </div>
+            </div>
+            
+            <div class="contact-cta">
+                <button class="btn btn-primary btn-lg">
+                    <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+                    Записаться на техосмотр
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <i data-lucide="truck" class="footer-icon"></i>
+                <span style="font-size: 1.25rem; font-weight: bold;">ТехОсмотр+</span>
+            </div>
+            <p class="footer-text">© 2024 ТехОсмотр+. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Button click handlers
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.textContent.includes('Записаться') || this.textContent.includes('Узнать цену')) {
+                    alert('Для записи позвоните по телефону: +7 (495) 123-45-67');
+                } else if (this.textContent.includes('Скачать')) {
+                    alert('Документ будет загружен в ближайшее время');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

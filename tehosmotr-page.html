@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТехОсмотр+ - Профессиональный техосмотр грузового транспорта</title>
+    <style>
+        /* Изолированные стили для встраивания */
+        .tehosmotr-page {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tehosmotr-page * {
+            box-sizing: border-box;
+        }
+
+        .tehosmotr-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .tehosmotr-hero {
+            background: linear-gradient(135deg, #dbeafe 0%, #f3f4f6 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .tehosmotr-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .tehosmotr-hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin: 0 0 1rem 0;
+        }
+
+        .tehosmotr-hero-subtitle {
+            color: #2563eb;
+        }
+
+        .tehosmotr-hero-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tehosmotr-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tehosmotr-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .tehosmotr-btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .tehosmotr-btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .tehosmotr-btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .tehosmotr-btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Services Section */
+        .tehosmotr-services {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .tehosmotr-section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            text-align: center;
+            margin: 0 0 1rem 0;
+        }
+
+        .tehosmotr-section-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tehosmotr-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tehosmotr-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .tehosmotr-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .tehosmotr-card-icon {
+            width: 48px;
+            height: 48px;
+            color: #2563eb;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .tehosmotr-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tehosmotr-card-description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .tehosmotr-price-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Prices Section */
+        .tehosmotr-prices {
+            padding: 3rem 0;
+            background: #f9fafb;
+        }
+
+        .tehosmotr-prices-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        .tehosmotr-price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tehosmotr-price-item:last-child {
+            border-bottom: none;
+        }
+
+        .tehosmotr-price-category {
+            color: #374151;
+        }
+
+        .tehosmotr-price-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .tehosmotr-info-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #dbeafe;
+            border-radius: 8px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tehosmotr-info-icon {
+            width: 20px;
+            height: 20px;
+            color: #2563eb;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tehosmotr-info-content {
+            color: #1e40af;
+        }
+
+        .tehosmotr-info-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Contact Section */
+        .tehosmotr-contact {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .tehosmotr-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tehosmotr-contact-item {
+            text-align: center;
+        }
+
+        .tehosmotr-contact-icon {
+            width: 48px;
+            height: 48px;
+            color: #2563eb;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .tehosmotr-contact-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .tehosmotr-contact-text {
+            color: #6b7280;
+        }
+
+        .tehosmotr-contact-link {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .tehosmotr-contact-link:hover {
+            color: #1d4ed8;
+        }
+
+        .tehosmotr-contact-cta {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Icons через символы */
+        .tehosmotr-icon {
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        .tehosmotr-icon-truck::before { content: "🚛"; }
+        .tehosmotr-icon-settings::before { content: "⚙️"; }
+        .tehosmotr-icon-shield::before { content: "🛡️"; }
+        .tehosmotr-icon-zap::before { content: "⚡"; }
+        .tehosmotr-icon-info::before { content: "ℹ️"; }
+        .tehosmotr-icon-calendar::before { content: "📅"; }
+        .tehosmotr-icon-phone::before { content: "📞"; }
+        .tehosmotr-icon-map-pin::before { content: "📍"; }
+        .tehosmotr-icon-clock::before { content: "🕐"; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tehosmotr-hero-title {
+                font-size: 2rem;
+            }
+
+            .tehosmotr-section-title {
+                font-size: 1.75rem;
+            }
+
+            .tehosmotr-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tehosmotr-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tehosmotr-page">
+        <!-- Hero Section -->
+        <section class="tehosmotr-hero">
+            <div class="tehosmotr-container">
+                <div class="tehosmotr-badge">Лицензированный центр техосмотра</div>
+                <h1 class="tehosmotr-hero-title">
+                    Профессиональный техосмотр<br>
+                    <span class="tehosmotr-hero-subtitle">грузового транспорта</span>
+                </h1>
+                <p class="tehosmotr-hero-description">
+                    Быстрый и качественный техосмотр всех видов грузовых автомобилей.
+                    Современное оборудование, опытные специалисты, честные цены.
+                </p>
+                <div class="tehosmotr-buttons">
+                    <button class="tehosmotr-btn tehosmotr-btn-primary">
+                        <span class="tehosmotr-icon tehosmotr-icon-calendar"></span>
+                        Записаться на техосмотр
+                    </button>
+                    <button class="tehosmotr-btn tehosmotr-btn-outline">
+                        <span class="tehosmotr-icon tehosmotr-icon-phone"></span>
+                        Узнать цену
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="tehosmotr-services">
+            <div class="tehosmotr-container">
+                <h2 class="tehosmotr-section-title">Наши услуги</h2>
+                <p class="tehosmotr-section-description">Полный спектр услуг по техническому осмотру</p>
+                
+                <div class="tehosmotr-services-grid">
+                    <div class="tehosmotr-card">
+                        <span class="tehosmotr-card-icon tehosmotr-icon tehosmotr-icon-truck"></span>
+                        <h3 class="tehosmotr-card-title">Техосмотр грузовых автомобилей</h3>
+                        <p class="tehosmotr-card-description">Полный технический осмотр всех систем грузового транспорта</p>
+                        <span class="tehosmotr-price-badge">от 2 500 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-card">
+                        <span class="tehosmotr-card-icon tehosmotr-icon tehosmotr-icon-settings"></span>
+                        <h3 class="tehosmotr-card-title">Диагностика двигателя</h3>
+                        <p class="tehosmotr-card-description">Компьютерная диагностика и проверка работы двигателя</p>
+                        <span class="tehosmotr-price-badge">от 1 500 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-card">
+                        <span class="tehosmotr-card-icon tehosmotr-icon tehosmotr-icon-shield"></span>
+                        <h3 class="tehosmotr-card-title">Проверка тормозной системы</h3>
+                        <p class="tehosmotr-card-description">Диагностика и тестирование тормозов и ABS</p>
+                        <span class="tehosmotr-price-badge">от 1 200 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-card">
+                        <span class="tehosmotr-card-icon tehosmotr-icon tehosmotr-icon-zap"></span>
+                        <h3 class="tehosmotr-card-title">Проверка электрики</h3>
+                        <p class="tehosmotr-card-description">Диагностика электрооборудования и освещения</p>
+                        <span class="tehosmotr-price-badge">от 800 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prices Section -->
+        <section class="tehosmotr-prices">
+            <div class="tehosmotr-container">
+                <h2 class="tehosmotr-section-title">Цены на техосмотр</h2>
+                <p class="tehosmotr-section-description">Прозрачные и честные цены без скрытых доплат</p>
+                
+                <div class="tehosmotr-prices-card">
+                    <h3 class="tehosmotr-card-title" style="text-align: center; margin-bottom: 2rem;">Стоимость техосмотра</h3>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Легковые автомобили</span>
+                        <span class="tehosmotr-price-amount">1 200 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Грузовики до 3,5 т</span>
+                        <span class="tehosmotr-price-amount">2 500 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Грузовики 3,5-12 т</span>
+                        <span class="tehosmotr-price-amount">3 500 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Грузовики свыше 12 т</span>
+                        <span class="tehosmotr-price-amount">4 500 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Автобусы</span>
+                        <span class="tehosmotr-price-amount">3 000 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-price-item">
+                        <span class="tehosmotr-price-category">Прицепы</span>
+                        <span class="tehosmotr-price-amount">1 800 ₽</span>
+                    </div>
+                    
+                    <div class="tehosmotr-info-box">
+                        <span class="tehosmotr-info-icon tehosmotr-icon tehosmotr-icon-info"></span>
+                        <div class="tehosmotr-info-content">
+                            <p class="tehosmotr-info-title">Дополнительная информация</p>
+                            <p>Цены указаны за стандартный техосмотр. Повторный осмотр после устранения неисправностей - 50% от стоимости.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="tehosmotr-contact">
+            <div class="tehosmotr-container">
+                <h2 class="tehosmotr-section-title">Контакты</h2>
+                <p class="tehosmotr-section-description">Работаем каждый день с 8:00 до 20:00</p>
+                
+                <div class="tehosmotr-contact-grid">
+                    <div class="tehosmotr-contact-item">
+                        <span class="tehosmotr-contact-icon tehosmotr-icon tehosmotr-icon-map-pin"></span>
+                        <h3 class="tehosmotr-contact-title">Адрес</h3>
+                        <p class="tehosmotr-contact-text">
+                            г. Москва, ул. Промышленная, 15<br>
+                            (рядом с МКАД)
+                        </p>
+                    </div>
+                    
+                    <div class="tehosmotr-contact-item">
+                        <span class="tehosmotr-contact-icon tehosmotr-icon tehosmotr-icon-phone"></span>
+                        <h3 class="tehosmotr-contact-title">Телефон</h3>
+                        <p class="tehosmotr-contact-text">
+                            <a href="tel:+74951234567" class="tehosmotr-contact-link">+7 (495) 123-45-67</a>
+                        </p>
+                    </div>
+                    
+                    <div class="tehosmotr-contact-item">
+                        <span class="tehosmotr-contact-icon tehosmotr-icon tehosmotr-icon-clock"></span>
+                        <h3 class="tehosmotr-contact-title">Время работы</h3>
+                        <p class="tehosmotr-contact-text">
+                            Пн-Вс: 8:00 - 20:00<br>
+                            Без выходных
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="tehosmotr-contact-cta">
+                    <button class="tehosmotr-btn tehosmotr-btn-primary">
+                        <span class="tehosmotr-icon tehosmotr-icon-calendar"></span>
+                        Записаться на техосмотр
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Button click handlers
+        document.querySelectorAll('.tehosmotr-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.textContent.includes('Записаться') || this.textContent.includes('Узнать цену')) {
+                    alert('Для записи позвоните по телефону: +7 (495) 123-45-67');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
